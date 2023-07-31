@@ -87,6 +87,7 @@ public class ChatServiceImplementation implements ChatService {
 
     @Override
     public Chat renameGroup(Integer chatId, String groupName, Integer reqUserId) throws ChatException, UserException {
+        //        3:23:31 / 4:30:58
         return null;
     }
 

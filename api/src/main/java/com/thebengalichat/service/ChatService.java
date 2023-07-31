@@ -14,7 +14,7 @@ public interface ChatService {
     Chat findChatById(Integer chatId) throws ChatException;
     List<Chat> findAllChatByUserId(Integer userId) throws UserException;
     Chat createGroup(GroupChatRequest req, User reqUser) throws UserException;
-    Chat addUserToGroup (Integer userId, Integer chatId) throws UserException, ChatException;
+    Chat addUserToGroup (Integer userId, Integer chatId, User reqUser) throws UserException, ChatException;
     Chat renameGroup(Integer chatId, String groupName, Integer reqUserId) throws ChatException, UserException;
     Chat removeFromGroup(Integer chatId, Integer userId, Integer reqUser) throws UserException, ChatException;
     Chat deleteChat(Integer chatId, Integer userId) throws ChatException, UserException;
