@@ -22,10 +22,17 @@ public class Chat {
     private String chatName;
     private String chatImage;
     private boolean isGroup;
+    @ManyToMany
+    @JoinTable(name = "chat_admin", joinColumns = @JoinColumn(name = "chat_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<User> admins = new HashSet<>();
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User createdBy;
     @ManyToMany
+    @JoinTable(name = "chat_user", joinColumns = @JoinColumn(name = "chat_id"),
+    inverseJoinColumns = @JoinColumn(name = "user_id"))
     private Set<User> users = new HashSet<>();
-    @OneToMany
+    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
     private List<Message> messages = new ArrayList<>();
 }

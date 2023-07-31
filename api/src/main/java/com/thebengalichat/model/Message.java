@@ -1,15 +1,10 @@
 package com.thebengalichat.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 @Entity
 @Data
 @AllArgsConstructor
@@ -20,7 +15,9 @@ public class Message {
     private String content;
     private LocalDateTime timestamp;
     @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
     @ManyToOne
+    @JoinColumn(name = "chat_id")
     private Chat chat;
 }
